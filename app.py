@@ -38,9 +38,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    #使用者傳來的訊息
+    s = "收到"
+    meg = event.message.text
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=s))
 
 
 if __name__ == "__main__":
