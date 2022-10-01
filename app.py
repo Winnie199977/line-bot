@@ -41,12 +41,22 @@ def handle_message(event):
     #使用者傳來的訊息
     s = "收到"
     meg = event.message.text
-    line_bot_api.reply_message(
-        event.reply_token,
-        StickerSendMessage(
+
+    if 's' in msg:
+        sticker_message = StickerSendMessage(
             package_id='1',
             sticker_id='1'
-        ))
+        )
+
+        line_bot_api.reply_message(
+        event.reply_token,
+        sticker_message)
+
+        return #function結束
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=''))
 
 
 if __name__ == "__main__":
