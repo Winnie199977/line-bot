@@ -43,7 +43,10 @@ def handle_message(event):
     meg = event.message.text
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=s))
+        StickerSendMessage(
+            package_id='1',
+            sticker_id='1'
+        ))
 
 
 if __name__ == "__main__":
